@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.changan.icar.server.dao.TravelMapper">
+  <resultMap id="BaseResultMap" type="com.changan.icar.comm.po.Travel">
+    <id column="uuid" jdbcType="CHAR" property="uuid" />
+    <result column="tuid" jdbcType="CHAR" property="tuid" />
+    <result column="mileage" jdbcType="DECIMAL" property="mileage" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    uuid, tuid, mileage
+  </sql>
+  <select id="selectByExample" parameterType="com.changan.icar.comm.po.TravelExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from travel
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from travel
+    where uuid = #{uuid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from travel
+    where uuid = #{uuid,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.changan.icar.comm.po.TravelExample">
+    delete from travel
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.changan.icar.comm.po.Travel">
+    insert into travel (uuid, tuid, mileage
+      )
+    values (#{uuid,jdbcType=CHAR}, #{tuid,jdbcType=CHAR}, #{mileage,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.changan.icar.comm.po.Travel">
+    insert into travel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="tuid != null">
+        tuid,
+      </if>
+      <if test="mileage != null">
+        mileage,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=CHAR},
+      </if>
+      <if test="tuid != null">
+        #{tuid,jdbcType=CHAR},
+      </if>
+      <if test="mileage != null">
+        #{mileage,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.changan.icar.comm.po.TravelExample" resultType="java.lang.Long">
+    select count(*) from travel
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update travel
+    <set>
+      <if test="record.uuid != null">
+        uuid = #{record.uuid,jdbcType=CHAR},
+      </if>
+      <if test="record.tuid != null">
+        tuid = #{record.tuid,jdbcType=CHAR},
+      </if>
+      <if test="record.mileage != null">
+        mileage = #{record.mileage,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update travel
+    set uuid = #{record.uuid,jdbcType=CHAR},
+      tuid = #{record.tuid,jdbcType=CHAR},
+      mileage = #{record.mileage,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.changan.icar.comm.po.Travel">
+    update travel
+    <set>
+      <if test="tuid != null">
+        tuid = #{tuid,jdbcType=CHAR},
+      </if>
+      <if test="mileage != null">
+        mileage = #{mileage,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.changan.icar.comm.po.Travel">
+    update travel
+    set tuid = #{tuid,jdbcType=CHAR},
+      mileage = #{mileage,jdbcType=DECIMAL}
+    where uuid = #{uuid,jdbcType=CHAR}
+  </update>
+</mapper>

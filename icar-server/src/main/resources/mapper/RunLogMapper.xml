@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.changan.icar.server.dao.RunLogMapper">
+  <resultMap id="BaseResultMap" type="com.changan.icar.comm.po.RunLog">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="tuid" jdbcType="CHAR" property="tuid" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.changan.icar.comm.po.RunLog">
+    <result column="crash_path" jdbcType="LONGVARCHAR" property="crashPath" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    uuid, tuid, start_time, status, name
+  </sql>
+  <sql id="Blob_Column_List">
+    crash_path
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.changan.icar.comm.po.RunLogExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sbrjyxjlb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.changan.icar.comm.po.RunLogExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sbrjyxjlb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sbrjyxjlb
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sbrjyxjlb
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.changan.icar.comm.po.RunLogExample">
+    delete from sbrjyxjlb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.changan.icar.comm.po.RunLog">
+    insert into sbrjyxjlb (uuid, tuid, start_time, 
+      status, name, crash_path
+      )
+    values (#{uuid,jdbcType=VARCHAR}, #{tuid,jdbcType=CHAR}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{crashPath,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.changan.icar.comm.po.RunLog">
+    insert into sbrjyxjlb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="tuid != null">
+        tuid,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="crashPath != null">
+        crash_path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="tuid != null">
+        #{tuid,jdbcType=CHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="crashPath != null">
+        #{crashPath,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.changan.icar.comm.po.RunLogExample" resultType="java.lang.Long">
+    select count(*) from sbrjyxjlb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sbrjyxjlb
+    <set>
+      <if test="record.uuid != null">
+        uuid = #{record.uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tuid != null">
+        tuid = #{record.tuid,jdbcType=CHAR},
+      </if>
+      <if test="record.startTime != null">
+        start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.crashPath != null">
+        crash_path = #{record.crashPath,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update sbrjyxjlb
+    set uuid = #{record.uuid,jdbcType=VARCHAR},
+      tuid = #{record.tuid,jdbcType=CHAR},
+      start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      crash_path = #{record.crashPath,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sbrjyxjlb
+    set uuid = #{record.uuid,jdbcType=VARCHAR},
+      tuid = #{record.tuid,jdbcType=CHAR},
+      start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.changan.icar.comm.po.RunLog">
+    update sbrjyxjlb
+    <set>
+      <if test="tuid != null">
+        tuid = #{tuid,jdbcType=CHAR},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="crashPath != null">
+        crash_path = #{crashPath,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.changan.icar.comm.po.RunLog">
+    update sbrjyxjlb
+    set tuid = #{tuid,jdbcType=CHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      crash_path = #{crashPath,jdbcType=LONGVARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.changan.icar.comm.po.RunLog">
+    update sbrjyxjlb
+    set tuid = #{tuid,jdbcType=CHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+</mapper>

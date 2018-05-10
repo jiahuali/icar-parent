@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.changan.icar.server.dao.IdeaMapper">
+  <resultMap id="BaseResultMap" type="com.changan.icar.comm.po.Idea">
+    <id column="uuid" jdbcType="CHAR" property="uuid" />
+    <result column="acc_uuid" jdbcType="CHAR" property="accUuid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.changan.icar.comm.po.Idea">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    uuid, acc_uuid, title, status, time, type
+  </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.changan.icar.comm.po.IdeaExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from idea
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.changan.icar.comm.po.IdeaExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from idea
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from idea
+    where uuid = #{uuid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from idea
+    where uuid = #{uuid,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.changan.icar.comm.po.IdeaExample">
+    delete from idea
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.changan.icar.comm.po.Idea">
+    insert into idea (uuid, acc_uuid, title, 
+      status, time, type, 
+      content)
+    values (#{uuid,jdbcType=CHAR}, #{accUuid,jdbcType=CHAR}, #{title,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}, #{type,jdbcType=INTEGER}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.changan.icar.comm.po.Idea">
+    insert into idea
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="accUuid != null">
+        acc_uuid,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=CHAR},
+      </if>
+      <if test="accUuid != null">
+        #{accUuid,jdbcType=CHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.changan.icar.comm.po.IdeaExample" resultType="java.lang.Long">
+    select count(*) from idea
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update idea
+    <set>
+      <if test="record.uuid != null">
+        uuid = #{record.uuid,jdbcType=CHAR},
+      </if>
+      <if test="record.accUuid != null">
+        acc_uuid = #{record.accUuid,jdbcType=CHAR},
+      </if>
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.time != null">
+        time = #{record.time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update idea
+    set uuid = #{record.uuid,jdbcType=CHAR},
+      acc_uuid = #{record.accUuid,jdbcType=CHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      time = #{record.time,jdbcType=TIMESTAMP},
+      type = #{record.type,jdbcType=INTEGER},
+      content = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update idea
+    set uuid = #{record.uuid,jdbcType=CHAR},
+      acc_uuid = #{record.accUuid,jdbcType=CHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      time = #{record.time,jdbcType=TIMESTAMP},
+      type = #{record.type,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.changan.icar.comm.po.Idea">
+    update idea
+    <set>
+      <if test="accUuid != null">
+        acc_uuid = #{accUuid,jdbcType=CHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.changan.icar.comm.po.Idea">
+    update idea
+    set acc_uuid = #{accUuid,jdbcType=CHAR},
+      title = #{title,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      time = #{time,jdbcType=TIMESTAMP},
+      type = #{type,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where uuid = #{uuid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.changan.icar.comm.po.Idea">
+    update idea
+    set acc_uuid = #{accUuid,jdbcType=CHAR},
+      title = #{title,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      time = #{time,jdbcType=TIMESTAMP},
+      type = #{type,jdbcType=INTEGER}
+    where uuid = #{uuid,jdbcType=CHAR}
+  </update>
+</mapper>

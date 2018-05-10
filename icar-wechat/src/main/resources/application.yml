@@ -1,0 +1,8 @@
+server:
+  port: 9000
+spring:
+  profiles.active: $profileActive$
+  dubbo:
+    application.name: icar-wechat
+    scan: com.changan.icar.wechat.service.impl
+   

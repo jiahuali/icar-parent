@@ -1,0 +1,29 @@
+server:
+  port: 8090
+spring:
+  profiles.active: $profileActive$
+  dubbo:
+    scan: com.changan.icar.server.service.impl
+    application.name: icar-server
+    protocol:
+      name: dubbo
+      port: 20883
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+mybatis:
+  typeAliasesPackage: com.changan.icar.comm.po
+  mapperLocations: classpath:mapper/*.xml
