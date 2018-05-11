@@ -1,6 +1,13 @@
 package com.changan.icar.comm.dto;
 
-public class Result {
+import java.io.Serializable;
+
+public class Result implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2222;
+
 	/**
 	 * 200：请求成功，并得到正确结果 500：请求成功，但服务器出现异常错误 400：错误的请求格式
 	 */
@@ -13,7 +20,7 @@ public class Result {
 	public Result() {
 
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Result [code=" + code + ", msg=" + msg + ", data=" + data + "]";

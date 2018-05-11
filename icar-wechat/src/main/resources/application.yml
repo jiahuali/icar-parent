@@ -5,4 +5,4 @@ spring:
   dubbo:
     application.name: icar-wechat
     scan: com.changan.icar.wechat.service.impl
-   
+    registry.address: zookeeper://192.168.207.130:2182
