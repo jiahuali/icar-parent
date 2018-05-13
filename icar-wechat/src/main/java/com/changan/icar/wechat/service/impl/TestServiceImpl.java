@@ -20,7 +20,7 @@ public class TestServiceImpl implements TestService {
 	@Override
 	public Result insert(String openId, String username, Account account) {
 		log.info("testService，from wechat");
-		return accountService.createAccountFromWx(openId, username, account);
+		return accountService.createAccount(openId, username, account);
 	}
 
 }

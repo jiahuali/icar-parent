@@ -1,85 +1,98 @@
 package com.changan.icar.comm.po;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Operation {
-    private String msgId;
+public class Operation implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5143782507885646123L;
 
-    private String uuid;
+	private String msgId;
 
-    private String tuid;
+	private String uuid;
 
-    private Date datetime;
+	private String tuid;
 
-    private Integer operation;
+	private Date datetime;
 
-    private Integer status;
+	private Integer operation;
 
-    private Integer type;
+	private Integer status;
 
-    private String ext;
+	private Integer type;
 
-    public String getMsgId() {
-        return msgId;
-    }
+	private String ext;
 
-    public void setMsgId(String msgId) {
-        this.msgId = msgId == null ? null : msgId.trim();
-    }
+	public String getMsgId() {
+		return msgId;
+	}
 
-    public String getUuid() {
-        return uuid;
-    }
+	public void setMsgId(String msgId) {
+		this.msgId = msgId == null ? null : msgId.trim();
+	}
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid == null ? null : uuid.trim();
-    }
+	public String getUuid() {
+		return uuid;
+	}
 
-    public String getTuid() {
-        return tuid;
-    }
+	public void setUuid(String uuid) {
+		this.uuid = uuid == null ? null : uuid.trim();
+	}
 
-    public void setTuid(String tuid) {
-        this.tuid = tuid == null ? null : tuid.trim();
-    }
+	public String getTuid() {
+		return tuid;
+	}
 
-    public Date getDatetime() {
-        return datetime;
-    }
+	public void setTuid(String tuid) {
+		this.tuid = tuid == null ? null : tuid.trim();
+	}
 
-    public void setDatetime(Date datetime) {
-        this.datetime = datetime;
-    }
+	public Date getDatetime() {
+		return datetime;
+	}
 
-    public Integer getOperation() {
-        return operation;
-    }
+	public void setDatetime(Date datetime) {
+		this.datetime = datetime;
+	}
 
-    public void setOperation(Integer operation) {
-        this.operation = operation;
-    }
+	public Integer getOperation() {
+		return operation;
+	}
 
-    public Integer getStatus() {
-        return status;
-    }
+	public void setOperation(Integer operation) {
+		this.operation = operation;
+	}
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+	public Integer getStatus() {
+		return status;
+	}
 
-    public Integer getType() {
-        return type;
-    }
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
+	public Integer getType() {
+		return type;
+	}
 
-    public String getExt() {
-        return ext;
-    }
+	public void setType(Integer type) {
+		this.type = type;
+	}
 
-    public void setExt(String ext) {
-        this.ext = ext == null ? null : ext.trim();
-    }
+	public String getExt() {
+		return ext;
+	}
+
+	public void setExt(String ext) {
+		this.ext = ext == null ? null : ext.trim();
+	}
+
+	@Override
+	public String toString() {
+		return "Operation [msgId=" + msgId + ", uuid=" + uuid + ", tuid=" + tuid + ", datetime=" + datetime
+				+ ", operation=" + operation + ", status=" + status + ", type=" + type + ", ext=" + ext + "]";
+	}
+	
 }

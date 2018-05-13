@@ -75,6 +75,18 @@ public class Result implements Serializable {
 		return this;
 	}
 
+	/**
+	 * 没有记录
+	 * 
+	 * @param msg
+	 * @return
+	 */
+	public Result noRecord(String msg) {
+		this.code = NO_RECORD;
+		this.msg = msg;
+		return this;
+	}
+
 	public int getCode() {
 		return code;
 	}

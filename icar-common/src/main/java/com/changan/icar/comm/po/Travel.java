@@ -1,35 +1,48 @@
 package com.changan.icar.comm.po;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Travel {
-    private String uuid;
+public class Travel implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8375984563745820001L;
 
-    private String tuid;
+	private String uuid;
 
-    private BigDecimal mileage;
+	private String tuid;
 
-    public String getUuid() {
-        return uuid;
-    }
+	private BigDecimal mileage;
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid == null ? null : uuid.trim();
-    }
+	public String getUuid() {
+		return uuid;
+	}
 
-    public String getTuid() {
-        return tuid;
-    }
+	public void setUuid(String uuid) {
+		this.uuid = uuid == null ? null : uuid.trim();
+	}
 
-    public void setTuid(String tuid) {
-        this.tuid = tuid == null ? null : tuid.trim();
-    }
+	public String getTuid() {
+		return tuid;
+	}
 
-    public BigDecimal getMileage() {
-        return mileage;
-    }
+	public void setTuid(String tuid) {
+		this.tuid = tuid == null ? null : tuid.trim();
+	}
 
-    public void setMileage(BigDecimal mileage) {
-        this.mileage = mileage;
-    }
+	public BigDecimal getMileage() {
+		return mileage;
+	}
+
+	public void setMileage(BigDecimal mileage) {
+		this.mileage = mileage;
+	}
+
+	@Override
+	public String toString() {
+		return "Travel [uuid=" + uuid + ", tuid=" + tuid + ", mileage=" + mileage + "]";
+	}
+	
+	
 }

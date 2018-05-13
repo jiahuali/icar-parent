@@ -1,6 +1,6 @@
-server: 
+server:
   contextPath: /icar-server/
-spring: 
+spring:
   profiles.active: $profileActive$
   dubbo:
     scan: com.changan.icar.server.service.impl
@@ -8,11 +8,11 @@ spring:
     protocol:
       name: dubbo
       port: 20883
-      registry.address: zookeeper://192.168.207.130:2182
+      registry.address: zookeeper://111.231.205.136:2182
   datasource:
-    url: jdbc:mysql://192.168.207.1:3306/icar2
+    url: jdbc:mysql://111.231.205.136:3306/icar?useUnicode=true&characterEncoding=UTF-8
     username: root
-    password: 1996929ljh.
+    password: aass7788
     driver-class-name: com.mysql.jdbc.Driver
     initialSize: 5
     minIdle: 5

@@ -1,86 +1,99 @@
 package com.changan.icar.comm.po;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Location {
-    private String uuid;
+public class Location implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4598738315810900428L;
 
-    private String traUuid;
+	private String uuid;
 
-    private BigDecimal longitude;
+	private String traUuid;
 
-    private BigDecimal latitude;
+	private BigDecimal longitude;
 
-    private BigDecimal altitude;
+	private BigDecimal latitude;
 
-    private Float heading;
+	private BigDecimal altitude;
 
-    private Date time;
+	private Float heading;
 
-    private String name;
+	private Date time;
 
-    public String getUuid() {
-        return uuid;
-    }
+	private String name;
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid == null ? null : uuid.trim();
-    }
+	public String getUuid() {
+		return uuid;
+	}
 
-    public String getTraUuid() {
-        return traUuid;
-    }
+	public void setUuid(String uuid) {
+		this.uuid = uuid == null ? null : uuid.trim();
+	}
 
-    public void setTraUuid(String traUuid) {
-        this.traUuid = traUuid == null ? null : traUuid.trim();
-    }
+	public String getTraUuid() {
+		return traUuid;
+	}
 
-    public BigDecimal getLongitude() {
-        return longitude;
-    }
+	public void setTraUuid(String traUuid) {
+		this.traUuid = traUuid == null ? null : traUuid.trim();
+	}
 
-    public void setLongitude(BigDecimal longitude) {
-        this.longitude = longitude;
-    }
+	public BigDecimal getLongitude() {
+		return longitude;
+	}
 
-    public BigDecimal getLatitude() {
-        return latitude;
-    }
+	public void setLongitude(BigDecimal longitude) {
+		this.longitude = longitude;
+	}
 
-    public void setLatitude(BigDecimal latitude) {
-        this.latitude = latitude;
-    }
+	public BigDecimal getLatitude() {
+		return latitude;
+	}
 
-    public BigDecimal getAltitude() {
-        return altitude;
-    }
+	public void setLatitude(BigDecimal latitude) {
+		this.latitude = latitude;
+	}
 
-    public void setAltitude(BigDecimal altitude) {
-        this.altitude = altitude;
-    }
+	public BigDecimal getAltitude() {
+		return altitude;
+	}
 
-    public Float getHeading() {
-        return heading;
-    }
+	public void setAltitude(BigDecimal altitude) {
+		this.altitude = altitude;
+	}
 
-    public void setHeading(Float heading) {
-        this.heading = heading;
-    }
+	public Float getHeading() {
+		return heading;
+	}
 
-    public Date getTime() {
-        return time;
-    }
+	public void setHeading(Float heading) {
+		this.heading = heading;
+	}
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
+	public Date getTime() {
+		return time;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setTime(Date time) {
+		this.time = time;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
+
+	@Override
+	public String toString() {
+		return "Location [uuid=" + uuid + ", traUuid=" + traUuid + ", longitude=" + longitude + ", latitude=" + latitude
+				+ ", altitude=" + altitude + ", heading=" + heading + ", time=" + time + ", name=" + name + "]";
+	}
+	
 }

@@ -1,65 +1,78 @@
 package com.changan.icar.comm.po;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Feedback {
-    private String uuid;
+public class Feedback implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7474216849178886401L;
 
-    private String username;
+	private String uuid;
 
-    private String ideUuid;
+	private String username;
 
-    private Date time;
+	private String ideUuid;
 
-    private Integer type;
+	private Date time;
 
-    private String content;
+	private Integer type;
 
-    public String getUuid() {
-        return uuid;
-    }
+	private String content;
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid == null ? null : uuid.trim();
-    }
+	public String getUuid() {
+		return uuid;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public void setUuid(String uuid) {
+		this.uuid = uuid == null ? null : uuid.trim();
+	}
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public String getIdeUuid() {
-        return ideUuid;
-    }
+	public void setUsername(String username) {
+		this.username = username == null ? null : username.trim();
+	}
 
-    public void setIdeUuid(String ideUuid) {
-        this.ideUuid = ideUuid == null ? null : ideUuid.trim();
-    }
+	public String getIdeUuid() {
+		return ideUuid;
+	}
 
-    public Date getTime() {
-        return time;
-    }
+	public void setIdeUuid(String ideUuid) {
+		this.ideUuid = ideUuid == null ? null : ideUuid.trim();
+	}
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
+	public Date getTime() {
+		return time;
+	}
 
-    public Integer getType() {
-        return type;
-    }
+	public void setTime(Date time) {
+		this.time = time;
+	}
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
+	public Integer getType() {
+		return type;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public void setType(Integer type) {
+		this.type = type;
+	}
 
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content == null ? null : content.trim();
+	}
+
+	@Override
+	public String toString() {
+		return "Feedback [uuid=" + uuid + ", username=" + username + ", ideUuid=" + ideUuid + ", time=" + time
+				+ ", type=" + type + ", content=" + content + "]";
+	}
+	
 }

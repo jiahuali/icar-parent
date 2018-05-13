@@ -1,145 +1,161 @@
 package com.changan.icar.comm.po;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Device {
-    private String tuid;
+public class Device implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1137143679617764358L;
 
-    private String uuid;
+	private String tuid;
 
-    private String name;
+	private String uuid;
 
-    private Integer type;
+	private String name;
 
-    private String model;
+	private Integer type;
 
-    private Integer isDefault;
+	private String model;
 
-    private Integer status;
+	private Integer isDefault;
 
-    private BigDecimal oilAmount;
+	private Integer status;
 
-    private BigDecimal longitude;
+	private BigDecimal oilAmount;
 
-    private BigDecimal latitude;
+	private BigDecimal longitude;
 
-    private BigDecimal speed;
+	private BigDecimal latitude;
 
-    private BigDecimal altitude;
+	private BigDecimal speed;
 
-    private Float heading;
+	private BigDecimal altitude;
 
-    private String carNumber;
+	private Float heading;
 
-    public String getTuid() {
-        return tuid;
-    }
+	private String carNumber;
 
-    public void setTuid(String tuid) {
-        this.tuid = tuid == null ? null : tuid.trim();
-    }
+	public String getTuid() {
+		return tuid;
+	}
 
-    public String getUuid() {
-        return uuid;
-    }
+	public void setTuid(String tuid) {
+		this.tuid = tuid == null ? null : tuid.trim();
+	}
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid == null ? null : uuid.trim();
-    }
+	public String getUuid() {
+		return uuid;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setUuid(String uuid) {
+		this.uuid = uuid == null ? null : uuid.trim();
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public String getName() {
+		return name;
+	}
 
-    public Integer getType() {
-        return type;
-    }
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
+	public Integer getType() {
+		return type;
+	}
 
-    public String getModel() {
-        return model;
-    }
+	public void setType(Integer type) {
+		this.type = type;
+	}
 
-    public void setModel(String model) {
-        this.model = model == null ? null : model.trim();
-    }
+	public String getModel() {
+		return model;
+	}
 
-    public Integer getIsDefault() {
-        return isDefault;
-    }
+	public void setModel(String model) {
+		this.model = model == null ? null : model.trim();
+	}
 
-    public void setIsDefault(Integer isDefault) {
-        this.isDefault = isDefault;
-    }
+	public Integer getIsDefault() {
+		return isDefault;
+	}
 
-    public Integer getStatus() {
-        return status;
-    }
+	public void setIsDefault(Integer isDefault) {
+		this.isDefault = isDefault;
+	}
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+	public Integer getStatus() {
+		return status;
+	}
 
-    public BigDecimal getOilAmount() {
-        return oilAmount;
-    }
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
-    public void setOilAmount(BigDecimal oilAmount) {
-        this.oilAmount = oilAmount;
-    }
+	public BigDecimal getOilAmount() {
+		return oilAmount;
+	}
 
-    public BigDecimal getLongitude() {
-        return longitude;
-    }
+	public void setOilAmount(BigDecimal oilAmount) {
+		this.oilAmount = oilAmount;
+	}
 
-    public void setLongitude(BigDecimal longitude) {
-        this.longitude = longitude;
-    }
+	public BigDecimal getLongitude() {
+		return longitude;
+	}
 
-    public BigDecimal getLatitude() {
-        return latitude;
-    }
+	public void setLongitude(BigDecimal longitude) {
+		this.longitude = longitude;
+	}
 
-    public void setLatitude(BigDecimal latitude) {
-        this.latitude = latitude;
-    }
+	public BigDecimal getLatitude() {
+		return latitude;
+	}
 
-    public BigDecimal getSpeed() {
-        return speed;
-    }
+	public void setLatitude(BigDecimal latitude) {
+		this.latitude = latitude;
+	}
 
-    public void setSpeed(BigDecimal speed) {
-        this.speed = speed;
-    }
+	public BigDecimal getSpeed() {
+		return speed;
+	}
 
-    public BigDecimal getAltitude() {
-        return altitude;
-    }
+	public void setSpeed(BigDecimal speed) {
+		this.speed = speed;
+	}
 
-    public void setAltitude(BigDecimal altitude) {
-        this.altitude = altitude;
-    }
+	public BigDecimal getAltitude() {
+		return altitude;
+	}
 
-    public Float getHeading() {
-        return heading;
-    }
+	public void setAltitude(BigDecimal altitude) {
+		this.altitude = altitude;
+	}
 
-    public void setHeading(Float heading) {
-        this.heading = heading;
-    }
+	public Float getHeading() {
+		return heading;
+	}
 
-    public String getCarNumber() {
-        return carNumber;
-    }
+	public void setHeading(Float heading) {
+		this.heading = heading;
+	}
 
-    public void setCarNumber(String carNumber) {
-        this.carNumber = carNumber == null ? null : carNumber.trim();
-    }
+	public String getCarNumber() {
+		return carNumber;
+	}
+
+	public void setCarNumber(String carNumber) {
+		this.carNumber = carNumber == null ? null : carNumber.trim();
+	}
+
+	@Override
+	public String toString() {
+		return "Device [tuid=" + tuid + ", uuid=" + uuid + ", name=" + name + ", type=" + type + ", model=" + model
+				+ ", isDefault=" + isDefault + ", status=" + status + ", oilAmount=" + oilAmount + ", longitude="
+				+ longitude + ", latitude=" + latitude + ", speed=" + speed + ", altitude=" + altitude + ", heading="
+				+ heading + ", carNumber=" + carNumber + "]";
+	}
+	
+	
 }

@@ -1,53 +1,66 @@
 package com.changan.icar.comm.po;
 
-public class IcarAdmin {
-    private String username;
+import java.io.Serializable;
 
-    private String password;
+public class IcarAdmin implements Serializable {
+	@Override
+	public String toString() {
+		return "IcarAdmin [username=" + username + ", password=" + password + ", nickName=" + nickName + ", type="
+				+ type + ", headImg=" + headImg + "]";
+	}
 
-    private String nickName;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4787858487168507162L;
 
-    private Integer type;
+	private String username;
 
-    private String headImg;
+	private String password;
 
-    public String getUsername() {
-        return username;
-    }
+	private String nickName;
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
-    }
+	private Integer type;
 
-    public String getPassword() {
-        return password;
-    }
+	private String headImg;
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public String getNickName() {
-        return nickName;
-    }
+	public void setUsername(String username) {
+		this.username = username == null ? null : username.trim();
+	}
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName == null ? null : nickName.trim();
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public Integer getType() {
-        return type;
-    }
+	public void setPassword(String password) {
+		this.password = password == null ? null : password.trim();
+	}
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
+	public String getNickName() {
+		return nickName;
+	}
 
-    public String getHeadImg() {
-        return headImg;
-    }
+	public void setNickName(String nickName) {
+		this.nickName = nickName == null ? null : nickName.trim();
+	}
 
-    public void setHeadImg(String headImg) {
-        this.headImg = headImg == null ? null : headImg.trim();
-    }
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public String getHeadImg() {
+		return headImg;
+	}
+
+	public void setHeadImg(String headImg) {
+		this.headImg = headImg == null ? null : headImg.trim();
+	}
 }

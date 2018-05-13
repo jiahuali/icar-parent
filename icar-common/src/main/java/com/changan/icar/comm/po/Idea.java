@@ -1,75 +1,88 @@
 package com.changan.icar.comm.po;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Idea {
-    private String uuid;
+public class Idea implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7520806002646036034L;
 
-    private String accUuid;
+	private String uuid;
 
-    private String title;
+	private String accUuid;
 
-    private Integer status;
+	private String title;
 
-    private Date time;
+	private Integer status;
 
-    private Integer type;
+	private Date time;
 
-    private String content;
+	private Integer type;
 
-    public String getUuid() {
-        return uuid;
-    }
+	private String content;
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid == null ? null : uuid.trim();
-    }
+	public String getUuid() {
+		return uuid;
+	}
 
-    public String getAccUuid() {
-        return accUuid;
-    }
+	public void setUuid(String uuid) {
+		this.uuid = uuid == null ? null : uuid.trim();
+	}
 
-    public void setAccUuid(String accUuid) {
-        this.accUuid = accUuid == null ? null : accUuid.trim();
-    }
+	public String getAccUuid() {
+		return accUuid;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public void setAccUuid(String accUuid) {
+		this.accUuid = accUuid == null ? null : accUuid.trim();
+	}
 
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public Integer getStatus() {
-        return status;
-    }
+	public void setTitle(String title) {
+		this.title = title == null ? null : title.trim();
+	}
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+	public Integer getStatus() {
+		return status;
+	}
 
-    public Date getTime() {
-        return time;
-    }
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
+	public Date getTime() {
+		return time;
+	}
 
-    public Integer getType() {
-        return type;
-    }
+	public void setTime(Date time) {
+		this.time = time;
+	}
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
+	public Integer getType() {
+		return type;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public void setType(Integer type) {
+		this.type = type;
+	}
 
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content == null ? null : content.trim();
+	}
+
+	@Override
+	public String toString() {
+		return "Idea [uuid=" + uuid + ", accUuid=" + accUuid + ", title=" + title + ", status=" + status + ", time="
+				+ time + ", type=" + type + ", content=" + content + "]";
+	}
+	
 }

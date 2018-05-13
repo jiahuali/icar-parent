@@ -2,6 +2,8 @@ package com.changan.icar.comm.service;
 
 import com.changan.icar.comm.dto.Result;
 import com.changan.icar.comm.po.Account;
+import com.changan.icar.comm.po.AccountExample;
+import com.changan.icar.comm.po.AccountExample.Criteria;
 
 public interface AccountService {
 	/**
@@ -10,15 +12,7 @@ public interface AccountService {
 	 * @param account
 	 * @return
 	 */
-	Result createAccountFromWx(String openId, String username, Account account);
-
-	/**
-	 * 来自客户端的用户
-	 * 
-	 * @param account
-	 * @return
-	 */
-	Result createAccountFromClient(String username, String phone, Account account);
+	Result createAccount(String uuid, String username, Account account);
 
 	/**
 	 * 根据uuid更新用户
@@ -38,12 +32,22 @@ public interface AccountService {
 	Result getAccountByUuid(String uuid);
 
 	/**
+	 * 条件查询
+	 * 
+	 * @param accountExample
+	 * @param pageSize
+	 * @param pages
+	 * @return
+	 */
+	Result listAccountsByCriteria(AccountExample accountExample, Integer pageSize, Integer pages);
+
+	/**
 	 * 分页查询
 	 * 
 	 * @param pageSize
 	 * @param pages
 	 * @return
 	 */
-	Result listAccount(int pageSize, int pages);
+	Result listAccount(Integer pageSize, Integer pages);
 
 }
