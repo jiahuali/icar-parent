@@ -65,4 +65,22 @@ public class DeviceServiceTest {
 		device.setCarNumber("渝D66666");
 		deviceService.updateDeviceByTuid(tuid, device);
 	}
+
+	@Test
+	public void getDevice() {
+		Result deviceByTuid = deviceService.getDeviceByTuid(tuid);
+		System.out.println(deviceByTuid.toString());
+	}
+
+	@Test
+	public void listDevice() {
+		Result listDevice = deviceService.listDevice(0, 0);
+		System.out.println(listDevice.toString());
+	}
+	
+	@Test
+	public void deleteDevice() {
+		Result listDevice = deviceService.deleteDeviceByTuid(tuid);
+		System.out.println(listDevice.toString());
+	}
 }

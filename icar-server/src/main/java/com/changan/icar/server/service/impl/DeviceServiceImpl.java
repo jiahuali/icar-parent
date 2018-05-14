@@ -21,7 +21,7 @@ public class DeviceServiceImpl implements DeviceService {
 
 	@Override
 	public Result listDevice(Integer pageSize, Integer pages) {
-		return listDeviceByCriteria(null, pageSize, pages);
+		return listDeviceByExample(null, pageSize, pages);
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class DeviceServiceImpl implements DeviceService {
 			LogUtils.error("更新device时发生异常,msg:" + e.getMessage());
 		}
 		LogUtils.error("更新失败：" + device.toString());
-		return new Result().serverError("更新device时发生错误," + device.toString());
+		return new Result().serverError("更新device时发生错误");
 	}
 
 	@Override
@@ -117,9 +117,8 @@ public class DeviceServiceImpl implements DeviceService {
 	}
 
 	@Override
-	public Result listDeviceByCriteria(DeviceExample example, Integer pageSize, Integer pages) {
+	public Result listDeviceByExample(DeviceExample example, Integer pageSize, Integer pages) {
 		if (example == null) {
-			// 查询条件为空，不予返回
 			example = new DeviceExample();
 		}
 		LogUtils.info("查询DeviceList，" + example);

@@ -16,5 +16,5 @@ public interface DeviceService {
 
 	Result deleteDeviceByTuid(String tuid);
 
-	Result listDeviceByCriteria(DeviceExample example, Integer pageSize, Integer pages);
+	Result listDeviceByExample(DeviceExample example, Integer pageSize, Integer pages);
 }

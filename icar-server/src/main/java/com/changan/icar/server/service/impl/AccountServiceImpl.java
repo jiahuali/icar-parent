@@ -68,7 +68,7 @@ public class AccountServiceImpl implements AccountService {
 			LogUtils.error("更新account时发生异常,msg:" + e.getMessage());
 		}
 		LogUtils.error("更新失败：" + account.toString());
-		return new Result().serverError("更新用户时发生错误," + account.toString());
+		return new Result().serverError("更新用户时发生错误");
 	}
 
 	@Override
@@ -94,7 +94,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public Result listAccountsByCriteria(AccountExample example, Integer pageSize, Integer pages) {
+	public Result listAccountsByExample(AccountExample example, Integer pageSize, Integer pages) {
 		if (example == null) {
 			// 查询条件为空，不予返回
 			example = new AccountExample();
@@ -114,6 +114,6 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public Result listAccount(Integer pageSize, Integer pages) {
-		return listAccountsByCriteria(null, pageSize, pages);
+		return listAccountsByExample(null, pageSize, pages);
 	}
 }

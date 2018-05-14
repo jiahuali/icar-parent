@@ -18,6 +18,8 @@ public interface OperationService {
 
 	Result listOperationByTuid(String tuid, Integer pageSize, Integer pages);
 
-	Result listOperationByCriteria(OperationExample example, Integer pageSize, Integer pages);
+	Result getOperationByMsgId(String msgId);
+
+	Result listOperationByExample(OperationExample example, Integer pageSize, Integer pages);
 
 }

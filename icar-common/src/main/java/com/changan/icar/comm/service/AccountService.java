@@ -3,7 +3,6 @@ package com.changan.icar.comm.service;
 import com.changan.icar.comm.dto.Result;
 import com.changan.icar.comm.po.Account;
 import com.changan.icar.comm.po.AccountExample;
-import com.changan.icar.comm.po.AccountExample.Criteria;
 
 public interface AccountService {
 	/**
@@ -39,7 +38,7 @@ public interface AccountService {
 	 * @param pages
 	 * @return
 	 */
-	Result listAccountsByCriteria(AccountExample accountExample, Integer pageSize, Integer pages);
+	Result listAccountsByExample(AccountExample accountExample, Integer pageSize, Integer pages);
 
 	/**
 	 * 分页查询
