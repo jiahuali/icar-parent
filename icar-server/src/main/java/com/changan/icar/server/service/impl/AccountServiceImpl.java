@@ -3,8 +3,8 @@ package com.changan.icar.server.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.changan.icar.comm.dto.Result;
 import com.changan.icar.comm.po.Account;
 import com.changan.icar.comm.po.AccountExample;
@@ -13,8 +13,8 @@ import com.changan.icar.comm.util.LogUtils;
 import com.changan.icar.comm.util.StringUtils;
 import com.changan.icar.server.dao.AccountMapper;
 
-//@Service(version = "1.0.0")
-@Service
+@Service(version = "1.0.0")
+// @Service
 public class AccountServiceImpl implements AccountService {
 	@Autowired
 	private AccountMapper accountMapper;

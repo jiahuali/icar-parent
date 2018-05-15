@@ -31,3 +31,6 @@ spring:
 mybatis:
   typeAliasesPackage: com.changan.icar.comm.po
   mapperLocations: classpath:mapper/*.xml
+jpush:
+  appKey: 1a35780231b11f6e558e3e16
+  masterSecret: 602088caedef4e73d19d3052

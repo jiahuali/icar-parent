@@ -3,8 +3,8 @@ package com.changan.icar.server.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.changan.icar.comm.dto.Result;
 import com.changan.icar.comm.po.Location;
 import com.changan.icar.comm.po.LocationExample;
@@ -13,7 +13,8 @@ import com.changan.icar.comm.util.LogUtils;
 import com.changan.icar.comm.util.StringUtils;
 import com.changan.icar.server.dao.LocationMapper;
 
-@Service
+//@Service
+@Service(version = "1.0.0")
 public class LocationServiceImpl implements LocationService {
 	@Autowired
 	private LocationMapper locationMapper;
