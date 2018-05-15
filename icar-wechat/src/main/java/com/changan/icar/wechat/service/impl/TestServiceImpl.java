@@ -22,5 +22,4 @@ public class TestServiceImpl implements TestService {
 		log.info("testService，from wechat");
 		return accountService.createAccount(openId, username, account);
 	}
-
 }

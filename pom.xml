@@ -9,6 +9,7 @@
 		<module>icar-common</module>
 		<module>icar-server</module>
 		<module>icar-wechat</module>
+		<module>icar-admin</module>
 	</modules>
 	<profiles>
 		<!-- 开发环境 -->
