@@ -15,7 +15,7 @@ import cn.jiguang.common.resp.APIRequestException;
 import cn.jpush.api.JPushClient;
 import cn.jpush.api.push.PushResult;
 
-//@Service
+//@org.springframework.stereotype.Service
 @Service(version = "1.0.0")
 public class PushServiceImpl implements PushService {
 	@Autowired

@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
-@SpringBootApplication
 @MapperScan(basePackages = "com.changan.icar.server.dao")
+@SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
 	@Override

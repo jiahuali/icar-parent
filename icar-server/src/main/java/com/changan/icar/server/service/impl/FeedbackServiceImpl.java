@@ -13,7 +13,7 @@ import com.changan.icar.comm.util.LogUtils;
 import com.changan.icar.comm.util.StringUtils;
 import com.changan.icar.server.dao.FeedbackMapper;
 
-//@Service
+//@org.springframework.stereotype.Service
 @Service(version = "1.0.0")
 public class FeedbackServiceImpl implements FeedbackService {
 	@Autowired

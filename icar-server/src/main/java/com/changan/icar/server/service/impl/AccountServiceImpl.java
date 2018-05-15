@@ -13,8 +13,8 @@ import com.changan.icar.comm.util.LogUtils;
 import com.changan.icar.comm.util.StringUtils;
 import com.changan.icar.server.dao.AccountMapper;
 
+//@org.springframework.stereotype.Service
 @Service(version = "1.0.0")
-// @Service
 public class AccountServiceImpl implements AccountService {
 	@Autowired
 	private AccountMapper accountMapper;
