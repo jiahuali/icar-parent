@@ -1,11 +1,17 @@
 package com.changan.icar.comm.po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class FeedbackExample {
-    protected String orderByClause;
+public class FeedbackExample implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8105093928871077985L;
+
+	protected String orderByClause;
 
     protected boolean distinct;
 
@@ -436,15 +442,25 @@ public class FeedbackExample {
         }
     }
 
-    public static class Criteria extends GeneratedCriteria {
+    public static class Criteria extends GeneratedCriteria implements Serializable{
 
-        protected Criteria() {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 280314958986024993L;
+
+		protected Criteria() {
             super();
         }
     }
 
-    public static class Criterion {
-        private String condition;
+    public static class Criterion implements Serializable{
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 3249768521189060196L;
+
+		private String condition;
 
         private Object value;
 

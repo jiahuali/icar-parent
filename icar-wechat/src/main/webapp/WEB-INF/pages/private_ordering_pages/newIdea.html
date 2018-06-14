@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!--
+        	作者：578525306@qq.com
+        	时间：2017-10-25
+        	描述：调试用
+        -->
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-input-row">
+				<label>标题：<span style="color: red;">   *</span></label>
+				<input type="text" class="mui-input-clear" placeholder="输入标题" ng-model="title">
+			</div>
+			<div class="mui-input-row">
+				<label>内容：<span style="color: red;">   *</span></label>
+			</div>
+
+			<textarea rows="20" class="form-group" ng-model="content"></textarea>
+			<div class="mui-button-row">
+				<button type="button" class="mui-btn mui-btn-blue" ng-click="submitBtn">确认</button>
+				<button type="button" class="mui-btn mui-btn-danger" ng-click="backBtn()">取消</button>
+			</div>
+		</div>
+
+		<!--
+	作者：578525306@qq.com
+	时间：2017-10-25
+	描述：调试用
+      -->
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

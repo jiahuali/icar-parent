@@ -1,0 +1,52 @@
+server:
+  port: 80
+  contextPath: /icar-wechat/
+spring:
+  profiles.active: $profileActive$
+  dubbo:
+    application.name: icar-wechat
+    scan: com.changan.icar.wechat.service.impl
+    registry.address: zookeeper://111.231.205.136:2181
+wechat:
+  token: 631424210205GQS
+  aesKey: sxFzMor4LMmFnDmSFRPGzffvdAMsAqN3XIvbi9NQ4KB
+  appSecret: c59a1fe79e3e23c19181ac7f88b2c0d8
+  appId: wx75a0c8f0e32ae1cc
+menuConfig:
+  protocol: http
+  domain: icar.natapp1.cc
+  buttons:
+  - name: 位置服务
+    type: click
+    key: location_service
+    subButtons:
+    - name: 我要接人
+      type: click
+      key: wyjr
+      url: /icar-wechatmp/function/wyjr.do
+    - name: 找人接我
+      type: click
+      key: zrjw
+      url: /icar-wechatmp/function/zrjwSelectLocation.do
+    - name: 快速导航
+      type: location_select
+      key: quick_navi
+  - name: 车辆控制
+    type: click
+    key: control_service
+    subButtons:
+    - name: 获取车辆位置
+      type: view
+      url: /icar-wechatmp/device/deviceLocation.do
+      key: get_location
+  - name: 用户中心
+    type: click
+    subButtons:
+    - name: 设备管理
+      type: view
+      url: /icar-wechatmp/device/deviceManage.do
+      key: device_manage
+    - name: 粉丝至上
+      type: view
+      url: /icar-wechatmp/function/privateOrdering.do
+      key: private_ordering

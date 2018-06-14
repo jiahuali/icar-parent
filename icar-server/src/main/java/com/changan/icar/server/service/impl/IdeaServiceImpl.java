@@ -1,5 +1,6 @@
 package com.changan.icar.server.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import com.changan.icar.comm.util.LogUtils;
 import com.changan.icar.comm.util.StringUtils;
 import com.changan.icar.server.dao.IdeaMapper;
 
-//@org.springframework.stereotype.Service
 @Service(version = "1.0.0")
 public class IdeaServiceImpl implements IdeaService {
 	@Autowired
@@ -31,7 +31,9 @@ public class IdeaServiceImpl implements IdeaService {
 			return new Result().paramsNull("创意内容为空");
 		}
 		// 多重保障
+		idea.setUuid(StringUtils.generateUuid());
 		idea.setAccUuid(accountUuid);
+		idea.setTime(new Date());
 		LogUtils.info("idea内容:" + idea.toString());
 		try {
 			int rows = ideaMapper.insertSelective(idea);

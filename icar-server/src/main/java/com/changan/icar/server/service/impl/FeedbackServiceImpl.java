@@ -1,5 +1,6 @@
 package com.changan.icar.server.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class FeedbackServiceImpl implements FeedbackService {
 			example.setOrderByClause("`time` ASC");
 			example.createCriteria().andIdeUuidEqualTo(ideaUuid);
 			;
-			List<Feedback> feedbackList = feedbackMapper.selectByExample(example);
+			List<Feedback> feedbackList = feedbackMapper.selectByExampleWithBLOBs(example);
 			if (feedbackList == null || feedbackList.size() == 0) {
 				return new Result().noRecord("未查询到feedback");
 			}
@@ -55,6 +56,8 @@ public class FeedbackServiceImpl implements FeedbackService {
 		}
 		// 多重保障
 		feedback.setIdeUuid(ideaUuid);
+		feedback.setUuid(StringUtils.generateUuid());
+		feedback.setTime(new Date());
 		LogUtils.info("feedback内容:" + feedback.toString());
 		try {
 			int rows = feedbackMapper.insertSelective(feedback);

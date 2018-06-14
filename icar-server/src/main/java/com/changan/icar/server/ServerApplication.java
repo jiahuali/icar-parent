@@ -8,14 +8,14 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @MapperScan(basePackages = "com.changan.icar.server.dao")
 @SpringBootApplication
-public class Application extends SpringBootServletInitializer {
+public class ServerApplication extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(Application.class);
+		return builder.sources(ServerApplication.class);
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(ServerApplication.class, args);
 	}
 }

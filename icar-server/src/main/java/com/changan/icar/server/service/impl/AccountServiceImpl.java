@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.changan.icar.comm.dto.IcarConst;
 import com.changan.icar.comm.dto.Result;
 import com.changan.icar.comm.po.Account;
 import com.changan.icar.comm.po.AccountExample;
@@ -33,7 +34,7 @@ public class AccountServiceImpl implements AccountService {
 		// 多重保障
 		account.setUsername(username);
 		account.setUuid(uuid);
-
+		account.setStatus(IcarConst.ACCOUNT_STATUS_OK);
 		LogUtils.info("插入account," + account.toString());
 		try {
 			int rows = accountMapper.insertSelective(account);

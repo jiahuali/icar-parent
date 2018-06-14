@@ -1,0 +1,130 @@
+<!-- 重点参数：iconStyle, iconLabel -->
+<!doctype html>
+<html lang="zh-CN">
+
+	<head>
+		<!-- 原始地址：//webapi.amap.com/ui/1.0/ui/overlay/SimpleMarker/examples/index.html -->
+		<base href="//webapi.amap.com/ui/1.0/ui/overlay/SimpleMarker/examples/" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<title>内置样式</title>
+		<style>
+			html,
+			body,
+			#container {
+				width: 100%;
+				height: 100%;
+				margin: 0px;
+			}
+			
+			.amap-marker-label {
+				font-size: 13px;
+				border: 1px solid orange;
+				background: #fff;
+				border-radius: 10px 0 0 0;
+				color: #690441;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container"></div>
+		<script type="text/javascript" src='//webapi.amap.com/maps?v=1.4.0&key=您申请的key值'></script>
+		<!-- UI组件库 1.0 -->
+		<script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+		<script type="text/javascript">
+			//创建地图
+			var map = new AMap.Map('container', {
+				zoom: 4
+			});
+
+			//加载SimpleMarker
+			AMapUI.loadUI(['overlay/SimpleMarker'], function(SimpleMarker) {
+
+				var iconTheme = 'default';
+
+				//内置的样式
+				var iconStyles = SimpleMarker.getBuiltInIconStyles(iconTheme);
+
+				//获取一批grid排布的经纬度
+				var lngLats = getGridLngLats(map.getCenter(), 5, iconStyles.length, 130, 70);
+
+				for(var i = 0, len = lngLats.length; i < len; i++) {
+
+					new SimpleMarker({
+						iconTheme: iconTheme,
+						//使用内置的iconStyle
+						iconStyle: iconStyles[i],
+
+						//图标文字
+						iconLabel: {
+							//A,B,C.....
+							innerHTML: String.fromCharCode('A'.charCodeAt(0) + i),
+							style: {
+								//颜色, #333, red等等，这里仅作示例，取iconStyle中首尾相对的颜色
+								color: iconStyles[len - 1 - i]
+							}
+						},
+
+						//显示定位点
+						//showPositionPoint:true,
+
+						map: map,
+						position: lngLats[i],
+
+						//Marker的label(见http://lbs.amap.com/api/javascript-api/reference/overlay/#Marker)
+						label: {
+							content: iconStyles[i],
+							offset: new AMap.Pixel(27, 25)
+						}
+					});
+				}
+
+			});
+
+			/**
+			 * 返回一批网格排列的经纬度
+
+			 * @param  {AMap.LngLat} center 网格中心
+			 * @param  {number} colNum 列数
+			 * @param  {number} size  总数
+			 * @param  {number} cellX  横向间距
+			 * @param  {number} cellY  竖向间距
+			 * @return {Array}  返回经纬度数组
+			 */
+			function getGridLngLats(center, colNum, size, cellX, cellY) {
+
+				var pxCenter = map.lnglatToPixel(center);
+
+				var rowNum = Math.ceil(size / colNum);
+
+				var startX = pxCenter.getX(),
+					startY = pxCenter.getY();
+
+				cellX = cellX || 70;
+
+				cellY = cellY || 70;
+
+				var lngLats = [];
+
+				for(var r = 0; r < rowNum; r++) {
+
+					for(var c = 0; c < colNum; c++) {
+
+						var x = startX + (c - (colNum - 1) / 2) * (cellX);
+
+						var y = startY + (r - (rowNum - 1) / 2) * (cellY);
+
+						lngLats.push(map.pixelToLngLat(new AMap.Pixel(x, y)));
+
+						if(lngLats.length >= size) {
+							break;
+						}
+					}
+				}
+				return lngLats;
+			}
+		</script>
+	</body>
+
+</html>

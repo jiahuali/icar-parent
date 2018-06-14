@@ -39,6 +39,12 @@ public class Result implements Serializable {
 		return this;
 	}
 
+	public Result error(Integer code, String msg) {
+		this.code = code;
+		this.msg = msg;
+		return this;
+	}
+
 	/**
 	 * 服务器异常 ,code为500
 	 * 

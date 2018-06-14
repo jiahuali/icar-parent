@@ -66,7 +66,7 @@ public class LocationHandler extends AbstractHandler {
 				Result result = operationService.execute(openId, operation);
 				if (result.getCode() != 200) {
 					LogUtils.error("执行指令失败,msg:" + result.getMsg());
-					resultMsg = "位置发送失败，请稍后重试";
+					resultMsg = "请在用户中心->设备管理中查看您是否设置了默认设备";
 				} else {
 					resultMsg = "位置已发送到您的爱车上啦";
 				}

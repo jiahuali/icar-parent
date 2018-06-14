@@ -1,11 +1,17 @@
 package com.changan.icar.comm.po;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeviceExample {
-    protected String orderByClause;
+public class DeviceExample implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -4859313259300382493L;
+
+	protected String orderByClause;
 
     protected boolean distinct;
 
@@ -996,15 +1002,25 @@ public class DeviceExample {
         }
     }
 
-    public static class Criteria extends GeneratedCriteria {
+    public static class Criteria extends GeneratedCriteria implements Serializable{
 
-        protected Criteria() {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 6911810416418354703L;
+
+		protected Criteria() {
             super();
         }
     }
 
-    public static class Criterion {
-        private String condition;
+    public static class Criterion implements Serializable{
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = -8023329007244689179L;
+
+		private String condition;
 
         private Object value;
 

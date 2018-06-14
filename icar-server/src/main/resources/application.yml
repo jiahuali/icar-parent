@@ -3,7 +3,7 @@ server:
 spring:
   profiles.active: $profileActive$
   datasource:
-    url: jdbc:mysql://111.231.205.136:3306/icar?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://111.231.205.136:3306/icar?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: aass7788
     driver-class-name: com.mysql.jdbc.Driver

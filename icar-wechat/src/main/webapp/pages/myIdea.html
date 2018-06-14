@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="myIdeaApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body ng-controller="myIdeaCtr">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">进度查询</h1>
+		</header>
+		<div class="mui-content">
+
+			<div ng-repeat="idea in ideaList">
+
+				<!--页眉，放置标题-->
+				<div class="mui-card-header mui-card-media " ng-click="detailClick($index)">
+					<img src="../img/logo.jpg " />
+					<div class="mui-media-body ">标题：{{idea.title}}
+						<p>创建时间：{{idea.time}}</p>
+					</div>
+					<div ng-switch="idea.status">
+						<div ng-switch-when="1">
+							<span class="mui-badge mui-badge-warning">审核中</span>
+						</div>
+						<div ng-switch-when="2 ">
+							<span class="mui-badge mui-badge-primary">开发中</span>
+						</div>
+						<div ng-switch-when="3 ">
+							<span class="mui-badge mui-badge-success">开发完成</span>
+						</div>
+						<div ng-switch-when="4 ">
+							<span class="mui-badge">已关闭</span>
+						</div>
+					</div>
+					<!--end of switch-->
+				</div>
+				<!--end of card-->
+
+			</div>
+
+		</div>
+		<!--end of content-->
+
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js "></script>
+		<script src="../js/urlConfig.js "></script>
+		<script src="../js/mui.min.js "></script>
+		<script src="../angular/myIdeaApp.js "></script>
+		<script src="../angular/myIdeaCtr.js "></script>
+	</body>
+
+</html>

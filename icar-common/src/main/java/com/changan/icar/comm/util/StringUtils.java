@@ -1,5 +1,7 @@
 package com.changan.icar.comm.util;
 
+import java.util.UUID;
+
 /**
  * String工具类
  * 
@@ -19,6 +21,16 @@ public class StringUtils {
 				return true;
 		}
 		return false;
+	}
+
+	public static String generateUuid() {
+		String uuid = UUID.randomUUID().toString().replace("-", "").trim();
+		if (uuid == null || uuid.equals("")) {
+			LogUtils.error("生成uuid失败");
+			return null;
+		}
+
+		return uuid;
 	}
 
 }

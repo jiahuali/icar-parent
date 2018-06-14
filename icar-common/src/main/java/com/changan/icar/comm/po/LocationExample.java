@@ -1,12 +1,18 @@
 package com.changan.icar.comm.po;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class LocationExample {
-    protected String orderByClause;
+public class LocationExample implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -5449289717761652263L;
+
+	protected String orderByClause;
 
     protected boolean distinct;
 
@@ -617,15 +623,25 @@ public class LocationExample {
         }
     }
 
-    public static class Criteria extends GeneratedCriteria {
+    public static class Criteria extends GeneratedCriteria implements Serializable{
 
-        protected Criteria() {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 7484940483890959403L;
+
+		protected Criteria() {
             super();
         }
     }
 
-    public static class Criterion {
-        private String condition;
+    public static class Criterion implements Serializable{
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = -2357916017615938529L;
+
+		private String condition;
 
         private Object value;
 

@@ -1,10 +1,16 @@
 package com.changan.icar.comm.po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IcarAdminExample {
-    protected String orderByClause;
+public class IcarAdminExample implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 4278553262846629305L;
+
+	protected String orderByClause;
 
     protected boolean distinct;
 
@@ -375,15 +381,25 @@ public class IcarAdminExample {
         }
     }
 
-    public static class Criteria extends GeneratedCriteria {
+    public static class Criteria extends GeneratedCriteria implements Serializable{
 
-        protected Criteria() {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 5315687617347441554L;
+
+		protected Criteria() {
             super();
         }
     }
 
-    public static class Criterion {
-        private String condition;
+    public static class Criterion implements Serializable{
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = -6682468778282783863L;
+
+		private String condition;
 
         private Object value;
 
